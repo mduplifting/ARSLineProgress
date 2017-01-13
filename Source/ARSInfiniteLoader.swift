@@ -10,7 +10,7 @@
 
 import UIKit
 
-final class ARSInfiniteLoader: ARSLoader {
+public class ARSInfiniteLoader: ARSLoader {
 	
 	@objc var emptyView = UIView()
 	@objc var backgroundBlurView: UIVisualEffectView
@@ -31,7 +31,7 @@ final class ARSInfiniteLoader: ARSLoader {
 	@objc var innerCircle = CAShapeLayer()
 	@objc weak var targetView: UIView?
 	
-	init() {
+	public init() {
 		backgroundBlurView = ARSBlurredBackgroundRect().view
 		backgroundSimpleView = ARSSimpleBackgroundRect().view
 		backgroundFullView = ARSFullBackgroundRect().view
@@ -63,7 +63,7 @@ final class ARSInfiniteLoader: ARSLoader {
 
 extension ARSInfiniteLoader {
 	
-	func ars_showOnView(_ view: UIView?, completionBlock: (() -> Void)?) {
+	public func ars_showOnView(_ view: UIView?, completionBlock: (() -> Void)?) {
 		if ars_createdFrameForBackgroundView(backgroundView, onView: view) == false { return }
 		
 		targetView = view
@@ -76,6 +76,11 @@ extension ARSInfiniteLoader {
 		ars_animateCircles(outerCircle, middleCircle: middleCircle, innerCircle: innerCircle)
 		ars_presentLoader(self, onView: view, completionBlock: completionBlock)
 	}
+    
+    
+    public func ars_hide(completionBlock: (() -> Void)?) {
+        ars_hideLoader(ars_currentLoader, withCompletionBlock: completionBlock)
+    }
 	
 }
 
