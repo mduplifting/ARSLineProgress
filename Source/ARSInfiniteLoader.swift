@@ -79,7 +79,7 @@ extension ARSInfiniteLoader {
     
     
     public func ars_hide(completionBlock: (() -> Void)?) {
-        ars_hideLoader(ars_currentLoader, withCompletionBlock: completionBlock)
+        ars_hideLoader(self, withCompletionBlock: completionBlock)
     }
 	
 }
