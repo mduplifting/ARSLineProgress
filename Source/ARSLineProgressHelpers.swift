@@ -238,10 +238,6 @@ func ars_hideLoader(_ loader: ARSLoader?, withCompletionBlock block: (() -> Void
 		loader.backgroundView.layer.removeAnimation(forKey: "transform")
 		loader.backgroundView.layer.add(scaleAnimation, forKey: "transform")
 	}
-	
-	ars_dispatchAfter(ars_config.backgroundViewDismissAnimationDuration) {
-		ars_cleanupLoader(loader)
-	}
 }
 
 func ars_configureLayer(_ layer: CAShapeLayer, forView view: UIView, withPath path: CGPath, withBounds bounds: CGRect, withColor color: CGColor) {
